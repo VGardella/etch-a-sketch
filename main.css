@@ -1,0 +1,16 @@
+#board{
+    width: 850px;
+    height: 850px;
+    border: 2px solid gray;
+    border-style: outset;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square{
+    border: 1px solid gray;
+    border-collapse: collapse;
+    flex: 1 1 auto;
+    min-width: 20px;
+    min-height: 20px;
+}
