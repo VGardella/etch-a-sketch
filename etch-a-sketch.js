@@ -5,13 +5,12 @@ const overlap = document.getElementById('overlap');
 const fade = document.getElementById('fade');
 
 let grid = 0;
-let row = 0;
 
 
 // board creation
 
 function gridSize(event) {
-    row = Number(prompt('Choose the size:'));
+    let row = Number(prompt('Choose the size:'));
     if (row > 100) {
         alert('Choose a number between 1 and 100!');
     }
@@ -44,12 +43,6 @@ function createBoard(event) {
     }
 }
 
-function resetBoard(event) {
-    grid.forEach((cell) => {
-        cell.style.cssText = 'background-color: transparent;';
-    })
-}
-
 // drawing
 
 function colorChange(event) {
@@ -75,47 +68,16 @@ function colorFade(event) {
     }))
 }
 
-// reset drawing functions
-
-function resetFade(event) {
-    grid.forEach((cell) => cell.removeEventListener('mouseout', function() {
-        this.classList.remove('fade');
-        void this.offsetWidth; // requesting element dimensions cause reflow and restarts the animation.
-        this.classList.add('fade');
-    }))
-}
-
-function resetOpacity(event) {
-    grid.forEach((cell) => cell.removeEventListener('mouseover', function() {
-        let style = getComputedStyle(this);
-        let opacity = parseFloat(style.opacity);
-        let newOpacity = opacity + 0.2;
-        this.style.opacity = newOpacity;
-    }))
-    grid.forEach((cell) => cell.removeEventListener('mouseover', function() {
-        this.classList.add('color');
-    }))
-}
-
 
 // button activation
 
-size.addEventListener('click', () => {
-    createBoard();
-});
-
 overlap.addEventListener('click', () => {
-    resetBoard();
+    createBoard();
     colorChange();
     increaseOpacity();
 })
 
-reset.addEventListener('click', () => {
-    resetBoard();
-})
-
 fade.addEventListener('click', () => {
-    resetBoard();
-    resetOpacity();
+    createBoard();
     colorFade();
 })
