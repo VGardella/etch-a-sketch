@@ -1,7 +1,7 @@
 body{
     display: flex;
-    padding: 15px;
     font-family: 'Kanit', sans-serif;
+    background-color: lightgray;
 }
 
 .container{
@@ -47,6 +47,8 @@ button{
     display: flex;
     flex-wrap: wrap;
     flex-shrink: 0;
+    background-color: #ffffff;
+    margin: 20px;
 }
 
 .square{ 
