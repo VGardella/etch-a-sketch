@@ -5,20 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;500;600&family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
     <title>Etch-a-sketch</title>
 </head>
 <body>
     <div id="board"></div>
     <div class="container">
         <div id="title">Etch-a-Sketch!</div>
-        <div id="text">Welcome to my project! Define the size of the board clicking the 'Choose size' button. 
+        <div id="text">Define the size of the board clicking the 'Choose size' button. 
             Click the 'Overlapping strokes' or 'Fading strokes' buttons to change the drawing mode, and click
             'Reset board' to clean your working space.</div>
         <div class="buttons">
-            <button id="btn">Choose size</button>
-            <button id="restart">Restart board</button>
-            <button id="overlapping">Overlapping strokes</button>
-            <button id="fading">Fading strokes</button>
+            <div class="first-line">
+                <button id="size">Choose size</button>
+                <button id="reset">Restart board</button>
+            </div>
+            <div class="second-line">
+                <button id="overlap">Overlapping strokes</button>
+                <button id="fade">Fading strokes</button>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="etch-a-sketch.js"></script>
