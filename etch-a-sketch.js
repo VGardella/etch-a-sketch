@@ -4,13 +4,13 @@ let grid = 0;
 
 function gridSize(event) {
     let row = Number(prompt('Choose the size:'));
-    if (row > 70) {
-        alert('Choose a number between 1 and 70!');
+    if (row > 100) {
+        alert('Choose a number between 1 and 100!');
     }
     else if (row <= 0) {
         alert('You can use numbers lower than 1...')
     }
-    else if (row <= 70) {
+    else if (row <= 100) {
         for (let i = 0; i < row*row; i++) {
         rows = document.createElement('div');
         rows.setAttribute('class', 'square');
