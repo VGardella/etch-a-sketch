@@ -1,7 +1,8 @@
 const board = document.getElementById('board');
 const button = document.getElementById('btn');
+let grid = 0;
 
-let gridSize = function (event) {
+function gridSize(event) {
     let row = Number(prompt('Choose the size:'));
     if (row > 70) {
         alert('Choose a number between 1 and 70!');
@@ -18,6 +19,6 @@ let gridSize = function (event) {
         board.appendChild(rows);
         };
     }
+    grid = document.querySelectorAll('.square');
 }
 
-button.addEventListener('click', gridSize);
