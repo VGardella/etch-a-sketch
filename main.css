@@ -18,12 +18,5 @@
 
 .color {
     background-color: black;
-    animation-name: colorChange;
-    animation-duration: 10s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes colorChange {
-    from {}
-    to {background-color: transparent;}
+    opacity: 0;
 }
