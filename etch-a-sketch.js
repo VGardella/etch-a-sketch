@@ -28,11 +28,9 @@ function deleteGrid(event) {
 
 function colorChange(event) {
     grid.forEach((cell) => cell.addEventListener('mouseover', function() {
-        this.classList.add('color');
-    }))
-
-    grid.forEach((cell) => cell.addEventListener('mouseout', function() {
         this.classList.remove('color');
+        void this.offsetWidth; // requesting element dimensions cause reflow and restarts the animation.
+        this.classList.add('color');
     }))
 }
 
