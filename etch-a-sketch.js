@@ -45,6 +45,14 @@ function increaseOpacity(event) {
     }))
 }
 
+function colorFade(event) {
+    grid.forEach((cell) => cell.addEventListener('mouseout', function() {
+        this.classList.remove('fade');
+        void this.offsetWidth; // requesting element dimensions cause reflow and restarts the animation.
+        this.classList.add('fade');
+    }))
+}
+
 let createBoard = function(event) {
     if (grid === 0) {
         gridSize();
