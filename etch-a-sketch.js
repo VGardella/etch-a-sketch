@@ -28,9 +28,16 @@ function deleteGrid(event) {
 
 function colorChange(event) {
     grid.forEach((cell) => cell.addEventListener('mouseover', function() {
-        this.classList.remove('color');
-        void this.offsetWidth; // requesting element dimensions cause reflow and restarts the animation.
         this.classList.add('color');
+    }))
+}
+
+function increaseOpacity(event) {
+    grid.forEach((cell) => cell.addEventListener('mouseover', function() {
+        let style = getComputedStyle(this);
+        let opacity = parseFloat(style.opacity);
+        let newOpacity = opacity + 0.2;
+        this.style.opacity = newOpacity;
     }))
 }
 
@@ -43,6 +50,7 @@ let createBoard = function(event) {
         gridSize();
     }
     colorChange();
+    increaseOpacity();
 }
 
 button.addEventListener('click', createBoard);
