@@ -26,6 +26,16 @@ function deleteGrid(event) {
     grid.forEach((cell) => board.removeChild(cell));
 }
 
+function colorChange(event) {
+    grid.forEach((cell) => cell.addEventListener('mouseover', function() {
+        this.classList.add('color');
+    }))
+
+    grid.forEach((cell) => cell.addEventListener('mouseout', function() {
+        this.classList.remove('color');
+    }))
+}
+
 let createBoard = function(event) {
     if (grid === 0) {
         gridSize();
@@ -34,6 +44,7 @@ let createBoard = function(event) {
         deleteGrid();
         gridSize();
     }
+    colorChange();
 }
 
 button.addEventListener('click', createBoard);
