@@ -26,4 +26,14 @@ function deleteGrid(event) {
     grid.forEach((cell) => board.removeChild(cell));
 }
 
+let createBoard = function(event) {
+    if (grid === 0) {
+        gridSize();
+    }
+    else if (grid !== 0) {
+        deleteGrid();
+        gridSize();
+    }
+}
 
+button.addEventListener('click', createBoard);
