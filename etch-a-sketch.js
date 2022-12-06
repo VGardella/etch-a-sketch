@@ -22,3 +22,8 @@ function gridSize(event) {
     grid = document.querySelectorAll('.square');
 }
 
+function deleteGrid(event) {
+    grid.forEach((cell) => board.removeChild(cell));
+}
+
+
