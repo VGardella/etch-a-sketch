@@ -1,5 +1,9 @@
 const board = document.getElementById('board');
-const button = document.getElementById('btn');
+const size = document.getElementById('size');
+const reset = document.getElementById('reset');
+const overlap = document.getElementById('overlap');
+const fade = document.getElementById('fade');
+
 let grid = 0;
 
 function gridSize(event) {
@@ -53,4 +57,4 @@ let createBoard = function(event) {
     increaseOpacity();
 }
 
-button.addEventListener('click', createBoard);
+size.addEventListener('click', createBoard);
