@@ -5,11 +5,11 @@
     border-style: outset;
     display: flex;
     flex-wrap: wrap;
-    overflow: hidden;
 }
 
-.square{
+.square{ /* borders caused problems*/
     flex: 1 1 auto;
-    min-width: 8px;
+    min-width: 8px; /* rule needed for flex-shrink correct working*/
     min-height: 8px;
 }
+
