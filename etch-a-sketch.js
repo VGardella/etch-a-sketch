@@ -105,20 +105,21 @@ function colorFade(event) {
     grid.forEach((cell) => {
         cell.classList.remove('fade');
         cell.classList.remove('color');
-
-
     });
 };
 
 // button activation
 
 overlap.addEventListener('click', () => {
+    removeColorFade();
     resetBoard();
     colorChange();
     increaseOpacity();
 })
 
 fade.addEventListener('click', () => {
+    removeColorChange();
+    removeIncreaseOpacity();
     resetBoard();
     colorFade();
 })
@@ -133,5 +134,4 @@ erase.addEventListener('click', () => {
 
 reset.addEventListener('click', () => {
     resetBoard();
-
 })
