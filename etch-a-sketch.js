@@ -1,8 +1,9 @@
 const board = document.getElementById('board');
-const size = document.getElementById('size');
-const reset = document.getElementById('reset');
+const create = document.getElementById('create');
+const erase = document.getElementById('erase');
 const overlap = document.getElementById('overlap');
 const fade = document.getElementById('fade');
+const reset = document.getElementById('reset');
 
 let grid = 0;
 
@@ -69,30 +70,43 @@ function colorFade(event) {
 }
  // erase and reset
 
- function erase(event) {
+ function eraseBoard(event) {
     grid.forEach((cell) => cell.addEventListener('mouseover', function() {
-        this.className.remove('fade');
-        this.className.remove('color');
+        this.classList.remove('fade');
+        this.classList.remove('color');
     }))
  }
 
- function reset(event) {
-    grid.forEach((cell) => function() {
-        cell.className.remove('fade');
-        cell.className.remove('color');
+ function resetBoard(event) {
+    grid.forEach((cell) => {
+        cell.classList.remove('fade');
+        cell.classList.remove('color');
+
     });
 };
 
 // button activation
 
 overlap.addEventListener('click', () => {
-    reset();
+    resetBoard();
     colorChange();
     increaseOpacity();
 })
 
 fade.addEventListener('click', () => {
-    reset();
-    createBoard();
+    resetBoard();
     colorFade();
+})
+
+create.addEventListener('click', () => {
+    createBoard();
+})
+
+erase.addEventListener('click', () => {
+    eraseBoard();
+})
+
+reset.addEventListener('click', () => {
+    resetBoard();
+
 })
