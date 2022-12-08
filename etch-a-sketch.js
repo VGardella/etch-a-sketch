@@ -86,12 +86,13 @@ function colorFade(event) {
 // button activation
 
 overlap.addEventListener('click', () => {
-    createBoard();
+    reset();
     colorChange();
     increaseOpacity();
 })
 
 fade.addEventListener('click', () => {
+    reset();
     createBoard();
     colorFade();
 })
