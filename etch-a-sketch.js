@@ -48,6 +48,10 @@ function createBoard(event) {
 
 function addColorClass(event) {
     this.classList.add('color');
+    let style = getComputedStyle(this);
+    let opacity = parseFloat(style.opacity);
+    let newOpacity = opacity + 0.2;
+    this.style.opacity = newOpacity;
 }
 
 function addFadeClass(event) {
@@ -56,21 +60,10 @@ function addFadeClass(event) {
     this.classList.add('fade');
 }
 
-function defineOpacity(event) {
-        let style = getComputedStyle(this);
-        let opacity = parseFloat(style.opacity);
-        let newOpacity = opacity + 0.2;
-        this.style.opacity = newOpacity;
-}
-
 // remove event listeners
 
 function removeColorChange(event) {
     grid.forEach((cell) => cell.removeEventListener('mouseover', addColorClass));
-}
-
-function removeIncreaseOpacity(event) {
-    grid.forEach((cell) => cell.removeEventListener('mouseover', defineOpacity));
 }
 
 function removeColorFade(event) {
@@ -81,10 +74,6 @@ function removeColorFade(event) {
 
 function colorChange(event) {
     grid.forEach((cell) => cell.addEventListener('mouseover', addColorClass));
-}
-
-function increaseOpacity(event) {
-    grid.forEach((cell) => cell.addEventListener('mouseover', defineOpacity));
 }
 
 function colorFade(event) {
@@ -114,12 +103,10 @@ overlap.addEventListener('click', () => {
     removeColorFade();
     resetBoard();
     colorChange();
-    increaseOpacity();
 })
 
 fade.addEventListener('click', () => {
     removeColorChange();
-    removeIncreaseOpacity();
     resetBoard();
     colorFade();
 })
