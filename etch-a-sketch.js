@@ -63,6 +63,20 @@ function defineOpacity(event) {
         this.style.opacity = newOpacity;
 }
 
+// remove event listeners
+
+function removeColorChange(event) {
+    grid.forEach((cell) => cell.removeEventListener('mouseover', addColorClass));
+}
+
+function removeIncreaseOpacity(event) {
+    grid.forEach((cell) => cell.removeEventListener('mouseover', defineOpacity));
+}
+
+function removeColorFade(event) {
+    grid.forEach((cell) => cell.removeEventListener('mouseout', addFadeClass));
+}
+
 // drawing
 
 function colorChange(event) {
