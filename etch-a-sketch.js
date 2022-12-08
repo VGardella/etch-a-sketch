@@ -67,7 +67,21 @@ function colorFade(event) {
         this.classList.add('fade');
     }))
 }
+ // erase and reset
 
+ function erase(event) {
+    grid.forEach((cell) => cell.addEventListener('mouseover', function() {
+        this.className.remove('fade');
+        this.className.remove('color');
+    }))
+ }
+
+ function reset(event) {
+    grid.forEach((cell) => function() {
+        cell.className.remove('fade');
+        cell.className.remove('color');
+    });
+};
 
 // button activation
 
