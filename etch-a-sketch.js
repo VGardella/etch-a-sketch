@@ -44,30 +44,40 @@ function createBoard(event) {
     }
 }
 
-// drawing
+// add event listeners
 
-function colorChange(event) {
-    grid.forEach((cell) => cell.addEventListener('mouseover', function() {
-        this.classList.add('color');
-    }))
+function addColorClass(event) {
+    this.classList.add('color');
 }
 
-function increaseOpacity(event) {
-    grid.forEach((cell) => cell.addEventListener('mouseover', function() {
+function addFadeClass(event) {
+    this.classList.remove('fade');
+    void this.offsetWidth; // requesting element dimensions cause reflow and restarts the animation.
+    this.classList.add('fade');
+}
+
+function defineOpacity(event) {
         let style = getComputedStyle(this);
         let opacity = parseFloat(style.opacity);
         let newOpacity = opacity + 0.2;
         this.style.opacity = newOpacity;
-    }))
+}
+
+// drawing
+
+function colorChange(event) {
+    grid.forEach((cell) => cell.addEventListener('mouseover', addColorClass));
+}
+
+function increaseOpacity(event) {
+    grid.forEach((cell) => cell.addEventListener('mouseover', defineOpacity));
 }
 
 function colorFade(event) {
-    grid.forEach((cell) => cell.addEventListener('mouseout', function() {
-        this.classList.remove('fade');
-        void this.offsetWidth; // requesting element dimensions cause reflow and restarts the animation.
-        this.classList.add('fade');
-    }))
+    grid.forEach((cell) => cell.addEventListener('mouseout', addFadeClass));
 }
+
+
  // erase and reset
 
  function eraseBoard(event) {
@@ -81,6 +91,7 @@ function colorFade(event) {
     grid.forEach((cell) => {
         cell.classList.remove('fade');
         cell.classList.remove('color');
+
 
     });
 };
