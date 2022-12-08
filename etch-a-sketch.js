@@ -67,7 +67,7 @@ function removeColorChange(event) {
 }
 
 function removeColorFade(event) {
-    grid.forEach((cell) => cell.removeEventListener('mouseout', addFadeClass));
+    grid.forEach((cell) => cell.removeEventListener('mouseover', addFadeClass));
 }
 
 // drawing
@@ -77,7 +77,7 @@ function colorChange(event) {
 }
 
 function colorFade(event) {
-    grid.forEach((cell) => cell.addEventListener('mouseout', addFadeClass));
+    grid.forEach((cell) => cell.addEventListener('mouseover', addFadeClass));
 }
 
 
