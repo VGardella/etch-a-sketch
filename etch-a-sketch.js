@@ -62,14 +62,14 @@ function resetBoard() {
 
 // drawing
 
-function colorChange(event) {
+function colorChange() {
     grid.forEach((cell) => cell.addEventListener('mouseover', function() {
         this.classList.add('color');
         strokeType = 'color';
     }))
 }
 
-function increaseOpacity(event) {
+function increaseOpacity() {
     grid.forEach((cell) => cell.addEventListener('mouseover', function() {
         let style = getComputedStyle(this);
         let opacity = parseFloat(style.opacity);
@@ -78,7 +78,7 @@ function increaseOpacity(event) {
     }))
 }
 
-function colorFade(event) {
+function colorFade() {
     grid.forEach((cell) => cell.addEventListener('mouseout', function() {
         this.classList.remove('fade');
         void this.offsetWidth; // requesting element dimensions cause reflow and restarts the animation.
@@ -90,30 +90,31 @@ function colorFade(event) {
 // button activation
 
 overlap.addEventListener('click', () => {
-    createBoard();
-    colorChange();
-    increaseOpacity();
+    if (strokeType === null || strokeType === 'fade') {
+            createBoard();
+        colorChange();
+        increaseOpacity();
+    }
+
 })
 
 fade.addEventListener('click', () => {
-    createBoard();
-    colorFade();
+    if (strokeType === null || strokeType === 'color') {
+        createBoard();
+        colorFade();
+    }
 })
 
 reset.addEventListener('click', resetBoard)
 
 clean.addEventListener('click', () => {
     if (strokeType === 'fade') {
-        grid.forEach((cell) => {
-            createBoard();
-            colorFade();
-        })
+        createBoard();
+        colorFade();
     }
     else if (strokeType === 'color') {
-        grid.forEach((cell) => {
-            createBoard();
-            colorChange();
-            increaseOpacity();
-        })
+        createBoard();
+        colorChange();
+        increaseOpacity();
     }
 })
