@@ -5,12 +5,15 @@ const overlap = document.getElementById('overlap');
 const fade = document.getElementById('fade');
 
 let grid = 0;
-
+let row = 0;
 
 // board creation
 
-function gridSize(event) {
-    let row = Number(prompt('Choose the size:'));
+function gridSize() {
+    if (row === 0) {
+        row = Number(prompt('Choose the size:'));
+    }
+    
     if (row > 100) {
         alert('Choose a number between 1 and 100!');
     }
@@ -29,17 +32,29 @@ function gridSize(event) {
     grid = document.querySelectorAll('.square');
 }
 
-function deleteGrid(event) {
+function deleteGrid() {
     grid.forEach((cell) => board.removeChild(cell));
 }
 
-function createBoard(event) {
+function createBoard() {
     if (grid === 0) {
         gridSize();
     }
     else if (grid !== 0) {
         deleteGrid();
         gridSize();
+    }
+}
+
+function resetBoard() {
+    if (grid !== 0) {
+        deleteGrid();
+        row = 0;
+        grid = 0;
+        createBoard();    
+    } 
+    else if (grid === 0) {
+        createBoard();
     }
 }
 
@@ -81,3 +96,5 @@ fade.addEventListener('click', () => {
     createBoard();
     colorFade();
 })
+
+reset.addEventListener('click', resetBoard)
