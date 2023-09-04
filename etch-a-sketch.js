@@ -49,6 +49,7 @@ function createBoard() {
 }
 
 function resetBoard() {
+    strokeType = null;
     if (grid !== 0) {
         deleteGrid();
         row = 0;
