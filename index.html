@@ -12,14 +12,22 @@
 </head>
 <body>
     <div id="board"></div>
-    <div class="container">
+    <div id="game" class="container">
         <div id="title">Etch-a-Sketch!</div>
         <div id="text">Click the 'Overlapping strokes' or 'Fading strokes' buttons to create the board. Choose the size (from 1 to 100) 
             and start drawing!</div>
         <div class="buttons">
-            <div class="first-line">
-                <button id="overlap">Overlapping strokes</button>
-                <button id="fade">Fading strokes</button>
+            <div class="btns">
+                <button id="reset">New Board</button>
+            </div>
+            <div class="drawing-buttons">
+                <div id="first-line" class="btns">
+                    <button id="overlap">Overlapping strokes</button>
+                    <button id="fade">Fading strokes</button>
+                </div>
+                <div id="second-line" class="btns">
+                    <button id="pencil-color">Change pencil color</button>
+                </div>
             </div>
         </div>
     </div>
