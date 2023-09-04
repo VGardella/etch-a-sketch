@@ -1,11 +1,13 @@
 const board = document.getElementById('board');
 const size = document.getElementById('size');
 const reset = document.getElementById('reset');
+const clean = document.getElementById('clean');
 const overlap = document.getElementById('overlap');
 const fade = document.getElementById('fade');
 
 let grid = 0;
 let row = 0;
+let strokeType = null;
 
 // board creation
 
@@ -63,6 +65,7 @@ function resetBoard() {
 function colorChange(event) {
     grid.forEach((cell) => cell.addEventListener('mouseover', function() {
         this.classList.add('color');
+        strokeType = 'color';
     }))
 }
 
@@ -80,9 +83,9 @@ function colorFade(event) {
         this.classList.remove('fade');
         void this.offsetWidth; // requesting element dimensions cause reflow and restarts the animation.
         this.classList.add('fade');
+        strokeType = 'fade';
     }))
 }
-
 
 // button activation
 
@@ -98,3 +101,19 @@ fade.addEventListener('click', () => {
 })
 
 reset.addEventListener('click', resetBoard)
+
+clean.addEventListener('click', () => {
+    if (strokeType === 'fade') {
+        grid.forEach((cell) => {
+            createBoard();
+            colorFade();
+        })
+    }
+    else if (strokeType === 'color') {
+        grid.forEach((cell) => {
+            createBoard();
+            colorChange();
+            increaseOpacity();
+        })
+    }
+})
