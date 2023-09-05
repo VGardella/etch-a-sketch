@@ -2,12 +2,15 @@ const board = document.getElementById('board');
 const size = document.getElementById('size');
 const reset = document.getElementById('reset');
 const clean = document.getElementById('clean');
+const pencil = document.getElementById('pencil-color');
+const modal = document.getElementById('modal');
 const overlap = document.getElementById('overlap');
 const fade = document.getElementById('fade');
 
 let grid = 0;
 let row = 0;
 let strokeType = null;
+let color = 'black';
 
 // board creation
 
@@ -88,11 +91,32 @@ function colorFade() {
     }))
 }
 
+// modal
+
+function colorPencilModal() {
+    let color = 'black';
+    let root = document.querySelector(':root');
+    if (modal.classList.contains('hidden')) { // si esta oculto
+        modal.classList.toggle('hidden');
+    }
+    else if (!modal.classList.contains('hidden')) {
+        let input = document.getElementsByName('pencil-color');
+        input.forEach((item) => {
+            if (item.checked) {
+                color = item.value;
+            }
+        })
+        root.style.setProperty('--stroke-color', color);
+        modal.classList.toggle('hidden');
+    }
+}
+
+
 // button activation
 
 overlap.addEventListener('click', () => {
     if (strokeType === null || strokeType === 'fade') {
-            createBoard();
+        createBoard();
         colorChange();
         increaseOpacity();
     }
@@ -119,3 +143,5 @@ clean.addEventListener('click', () => {
         increaseOpacity();
     }
 })
+
+pencil.addEventListener('click', colorPencilModal)
