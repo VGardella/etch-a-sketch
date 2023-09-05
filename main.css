@@ -1,21 +1,28 @@
 body{
     display: flex;
-    font-family: 'Kanit', sans-serif;
-    background-color: lightgray;
+    background-color: #9ffdd0;
+    background-image: url(static/background3.png);
+    background-size: cover;
 }
 
 .container{
-    padding: 100px;
+    padding: 0 100px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .container #title{
-    font-size: 60px;
+    font-family: 'SuperBoys';
+    font-size: 90px;
+    text-shadow: 10px 10px rgba(43, 121, 91, 0.7);
     padding: 20px 0;
+    text-align: center;
 }
 
 .container #text{
+    font-family: 'Witcher Handwriting', sans-serif;
+    font-size: 25px;
     padding: 20px 0;
 }
 
@@ -24,31 +31,50 @@ body{
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
-    gap: 10px;
+    gap: 20px;
     justify-content: space-between;
 }
 
-.first-line,
-.second-line{
+.board-buttons,
+.drawing-buttons{
     display: flex;
-    gap: 25px;
+    gap: 10px;
+    align-items: center;
+}
+
+.drawing-buttons{
+    flex-direction: column;
+}
+
+.btns{
+    display: flex;
+    gap: 10px;
 }
 
 button{
-    width: 150px;
-    height: 20px;
+    width: 195px;
+    height: 50px;
+    background-color: #ffd44a;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Witcher Handwriting', sans-serif;
+    font-size: 18px;
+}
+
+button:hover{
+    background-color: #f7bd01;
 }
 
 #board{
-    width: 850px;
-    height: 850px;
-    border: 2px solid gray;
+    width: 750px;
+    height: 750px;
+    border: 30px solid #f7413e;
     border-style: outset;
     display: flex;
     flex-wrap: wrap;
     flex-shrink: 0;
     background-color: #ffffff;
-    margin: 20px;
+    margin: 25px;
 }
 
 .square{ 
@@ -57,6 +83,17 @@ button{
     min-width: 8px; /* rule needed for flex-shrink correct working*/
     min-height: 8px;
 }
+
+@font-face {
+    font-family: 'SuperBoys';
+    src: url(static/SuperBoys-vmW67.ttf);
+}
+
+@font-face {
+    font-family: 'Witcher Handwriting';
+    src: url(static/WitcherHandwritingRegular-GO5vO.ttf);
+  }
+
 
 /* color change */
 
