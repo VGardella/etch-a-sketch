@@ -26,8 +26,8 @@ function gridSize() {
         for (let i = 0; i < row*row; i++) {
         rows = document.createElement('div');
         rows.setAttribute('class', 'square');
-        rows.style.width = (850/row) + 'px';
-        rows.style.height = (850/row) + 'px';
+        rows.style.width = (750/row) + 'px';
+        rows.style.height = (750/row) + 'px';
         board.appendChild(rows);
         };
     }
